@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>移动端键盘</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<link rel="stylesheet" type="text/css" href="css/keyboard.css">
+</head>
+<body>
+	<div class="login">
+		<ul>
+			<li>
+				<label class="login-label">账号：</label>
+				<div class="login-input" id="user"></div>
+			</li>
+			<li>
+				<label class="login-label">密码：</label>
+				<div class="login-input" id="pwd"></div>
+			</li>
+			<li>
+				<label class="login-label">验证码：</label>
+				<div class="login-input" id="yzm"></div>
+			</li>
+			<li>
+				<label class="login-label">微信：</label>
+				<div class="login-input" id="money"></div>
+			</li>
+			<li>
+				<label class="login-label">支付宝：</label>
+				<div class="login-input" id="money1"></div>
+			</li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" src="js/keyboard.js"></script>
+	
+	<script type="text/javascript">
+		var keyboard = new Keyboard('#user', {
+			placeholder: '请输入用户名',
+			skin: {
+				mode: 'dark'
+			},
+			complete: function (res) {
+				console.log(res)
+			},
+			keypress: function (res) {
+				console.log(keyboard.getValue())
+			}
+		})
+		var keyboard1 = new Keyboard('#pwd', {
+			placeholder: '请输入密码',
+			skin: 'light',
+			mask: true
+		})
+		var keyboard2 = new Keyboard('#yzm', {
+			keyboardType: 'number',
+			placeholder: '请输入验证码',
+			skin: {mode: 'light'},
+			decimal: false,
+			maxlength: 6,
+			header: {
+				iconShow: false,
+				title:'数字键盘'
+			}                                                             
+		})
+		var keyboard3 = new Keyboard('#money', {
+			header: {
+				rightColor: '#57bf6a'
+			},
+			keyboardType: 'number',
+			placeholder: '请输入金额',
+			skin: {
+				mode: 'light',
+				style: 'wechat'
+			},
+			header: false,
+			decimal: false,
+			random: true,
+			thousand: true
+		})
+		var keyboard4 = new Keyboard('#money1', {
+			header: {
+				rightColor: '#57bf6a'
+			},
+			keyboardType: 'number',
+			placeholder: '请输入金额',
+			skin: {
+				mode: 'light',
+				style: 'alipay'
+			},
+			header: false,
+			decimal: false,
+			thousand: true
+		})
+	</script>
+
+</body>
+</html>

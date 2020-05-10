@@ -1,0 +1,662 @@
+@charset "UTF-8";
+/** 
+* 亮色
+*/
+/** 
+* 暗色
+*/
+/**
+* 支付宝数字键盘亮色系
+*/
+/**
+* 支付宝数字键盘暗色系
+*/
+/**
+* 微信数字键盘亮色系
+*/
+/**
+* 微信数字键盘暗色系
+*/
+html,
+body,
+div,
+span,
+input,
+p,
+i {
+  margin: 0;
+  padding: 0;
+}
+.key-backspace {
+  background-image: url("../images/icon-backspace.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 21px 18px;
+}
+.key-capslock {
+  background-image: url("../images/icon-capslock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 19px 18px;
+}
+.key-capslock.lock {
+  background-image: url("../images/icon-capslock-lock.svg");
+}
+.key-capslock.uplock {
+  background-image: url("../images/icon-capslock-uplock.svg");
+}
+.keyboard-wrapper {
+  font: 21px "PingFangSC-Medium,sans-serif", "Noto Sans CJK SC,sans-serif", Arial, "Microsoft YaHei";
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 375px;
+}
+.keyboard-transition {
+  transform-origin: 0 100% 0;
+  -webkit-transform-origin: 0 100% 0;
+}
+.keyboard-header {
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  position: relative;
+  text-align: center;
+}
+.keyboard-header:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-header .key-done {
+  width: 40px;
+  height: 100%;
+  padding: 0 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.keyboard-header .keyboard-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+.keyboard-main {
+  position: relative;
+}
+.keyboard-main:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+.keyboard-number .keyboard-row {
+  display: inline-flex;
+}
+.keyboard-number .keyboard-row .key-btn {
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+}
+.keyboard-number .keyboard-row .key-btn:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number .keyboard-row .key-btn:after {
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -1px;
+  z-index: 10;
+  transform: scaleX(0.5);
+  -webkit-transform: scaleX(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number .keyboard-row .key-btn:last-child:after {
+  display: none;
+}
+.keyboard-number .keyboard-row:first-child .key-btn:before {
+  display: none;
+}
+.keyboard-number-alipay {
+  display: -webkit-box;
+  flex-direction: column;
+}
+.keyboard-number-alipay .keyboard-col .keyboard-row {
+  display: -webkit-flex;
+  display: flex;
+}
+.keyboard-number-alipay .keyboard-col .keyboard-row .key-btn {
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+}
+.keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:after {
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -1px;
+  z-index: 10;
+  transform: scaleX(0.5);
+  -webkit-transform: scaleX(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number-alipay .keyboard-col .keyboard-row:first-child .key-btn:before {
+  display: none;
+}
+.keyboard-number-alipay .keyboard-col:first-child {
+  width: 75%;
+}
+.keyboard-number-alipay .keyboard-col:last-child {
+  width: 25%;
+}
+.keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-btn {
+  height: 100px;
+  line-height: 100px;
+  font-size: 18px;
+}
+.keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-btn:after {
+  display: none;
+}
+.keyboard-number-wechat {
+  display: -webkit-box;
+  flex-direction: column;
+  padding: 0 0 7px 7px;
+}
+.keyboard-number-wechat .keyboard-col .keyboard-row {
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 7px;
+}
+.keyboard-number-wechat .keyboard-col .keyboard-row .key-btn {
+  flex: 1;
+  height: 41.25px;
+  line-height: 41.25px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-right: 7px;
+}
+.keyboard-number-wechat .keyboard-col .keyboard-row .key-btn:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number-wechat .keyboard-col .keyboard-row .key-btn:after {
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -1px;
+  z-index: 10;
+  transform: scaleX(0.5);
+  -webkit-transform: scaleX(0.5);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+}
+.keyboard-number-wechat .keyboard-col .keyboard-row:first-child .key-btn:before {
+  display: none;
+}
+.keyboard-number-wechat .keyboard-col:first-child {
+  width: 75%;
+}
+.keyboard-number-wechat .keyboard-col:last-child {
+  width: 25%;
+}
+.keyboard-number-wechat .keyboard-col:last-child .keyboard-row:first-child .key-btn {
+  height: 41.25px;
+  line-height: 41.25px;
+}
+.keyboard-number-wechat .keyboard-col:last-child .keyboard-row:last-child .key-btn {
+  font-size: 18px;
+  height: 137.75px;
+  line-height: 137.75px;
+}
+.keyboard-letter {
+  padding: 5px 3px;
+}
+.keyboard-letter .keyboard-row {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+}
+.keyboard-letter .keyboard-row .key-btn {
+  width: 8.35%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  margin: 3.76px 3.47px;
+  text-align: center;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.keyboard-letter .keyboard-row .key-backspace,
+.keyboard-letter .keyboard-row .key-capslock,
+.keyboard-letter .keyboard-row .key-number,
+.keyboard-letter .keyboard-row .key-letter,
+.keyboard-letter .keyboard-row .key-symbol {
+  width: 13%;
+}
+.keyboard-letter .keyboard-row .key-confirm {
+  width: 20%;
+}
+.keyboard-letter .keyboard-row .key-spacebar {
+  width: 36.5%;
+}
+.keyboard-letter .keyboard-row .key-number,
+.keyboard-letter .keyboard-row .key-letter,
+.keyboard-letter .keyboard-row .key-symbol,
+.keyboard-letter .keyboard-row .key-spacebar,
+.keyboard-letter .keyboard-row .key-confirm {
+  font-size: 15px;
+}
+.keyboard-letter .keyboard-row .key-active,
+.keyboard-letter .keyboard-row .key-active-left,
+.keyboard-letter .keyboard-row .key-active-right {
+  position: relative;
+}
+.keyboard-letter .keyboard-row .key-active:before,
+.keyboard-letter .keyboard-row .key-active-left:before,
+.keyboard-letter .keyboard-row .key-active-right:before {
+  content: attr(key);
+  position: absolute;
+  display: block;
+  width: 67px;
+  height: 119px;
+  line-height: 2.3em;
+  font-size: 30px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+}
+.keyboard-letter .keyboard-row .key-active:before {
+  background-image: url("../images/icon-key.png");
+  -webkit-transform: translate3d(-19.6px, 3.5px, 0);
+  transform: translate3d(-19.6px, 3.5px, 0);
+}
+.keyboard-letter .keyboard-row .key-active-left:before {
+  background-image: url("../images/icon-keyleft.png");
+  -webkit-transform: translate3d(-7px, 3.5px, 0);
+  transform: translate3d(-7px, 3.5px, 0);
+}
+.keyboard-letter .keyboard-row .key-active-right:before {
+  background-image: url("../images/icon-keyright.png");
+  -webkit-transform: translate3d(-31.6px, 3.5px, 0);
+  transform: translate3d(-31.6px, 3.5px, 0);
+}
+.keyboard-letter[type="symbol"] .key-backspace {
+  width: 18.5%;
+}
+.light {
+  background-color: #efefef;
+}
+.light .keyboard-header {
+  background-color: #fff;
+  color: #999;
+}
+.light .keyboard-header:before {
+  background-color: #ccd0d2;
+}
+.light .keyboard-header .key-done {
+  color: #ff926f;
+}
+.light .keyboard-main {
+  color: #666;
+}
+.light .keyboard-main:before {
+  background-color: #ccd0d2;
+}
+.light .keyboard-number .keyboard-row .key-btn {
+  background-color: #fff;
+}
+.light .keyboard-number .keyboard-row .key-btn:before,
+.light .keyboard-number .keyboard-row .key-btn:after {
+  background-color: #efefef;
+}
+.light .keyboard-number .keyboard-row .key-btn.active {
+  background-color: #f5f5f5;
+}
+.light .keyboard-number .keyboard-row:last-child .key-btn:nth-child(odd) {
+  background-color: #e7e7e7;
+}
+.light .keyboard-number .keyboard-row:last-child .key-btn:nth-child(odd).active {
+  background-color: #ddd;
+}
+.light .keyboard-number-alipay {
+  color: #111;
+}
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn {
+  background-color: #f6f6f6;
+}
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:before,
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:after {
+  background-color: #d7d7d7;
+}
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn.active {
+  background-color: #e5e5e5;
+}
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-backspace {
+  background: #f6f6f6 url("../images/icon-backspace-alipay-light.png") no-repeat center;
+  background-size: 28px 20px;
+}
+.light .keyboard-number-alipay .keyboard-col .keyboard-row .key-hide {
+  background: #f6f6f6 url("../images/icon-hide-alipay-light.png") no-repeat center;
+  background-size: 26px 18px;
+}
+.light .keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-confirm {
+  background-color: #4b8fda;
+  color: #fff;
+}
+.light .keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-confirm.active {
+  background-color: #3e82cd;
+}
+.light .keyboard-number-wechat {
+  color: #191919;
+  background-color: #f3f3f5;
+}
+.light .keyboard-number-wechat .keyboard-col .keyboard-row .key-btn {
+  background-color: #fff;
+}
+.light .keyboard-number-wechat .keyboard-col .keyboard-row .key-btn.active {
+  background-color: #e5e5e5;
+}
+.light .keyboard-number-wechat .keyboard-col .keyboard-row .key-backspace {
+  background: #fff url("../images/icon-backspace-wechat-light.png") no-repeat center;
+  background-size: 20px 16px;
+}
+.light .keyboard-number-wechat .keyboard-col:last-child .keyboard-row .key-confirm {
+  background-color: #57bf6a;
+  color: #fff;
+}
+.light .keyboard-number-wechat .keyboard-col:last-child .keyboard-row .key-confirm.active {
+  background-color: #4fb762;
+}
+.light .keyboard-letter .keyboard-row .key-btn {
+  background-color: #fff;
+  border-color: #ccd0d2;
+}
+.light .keyboard-letter .keyboard-row .key-btn .key-tap {
+  display: none;
+}
+.light .keyboard-letter .keyboard-row .key-number,
+.light .keyboard-letter .keyboard-row .key-letter,
+.light .keyboard-letter .keyboard-row .key-symbol,
+.light .keyboard-letter .keyboard-row .key-backspace,
+.light .keyboard-letter .keyboard-row .key-capslock {
+  background-color: #e7e7e7;
+}
+.light .keyboard-letter .keyboard-row .key-confirm {
+  background-color: #ff926f;
+  color: #fff;
+}
+.light .keyboard-letter .keyboard-row .key-confirm.active {
+  background-color: #eb7e5b;
+}
+.light .keyboard-letter .keyboard-row .key-number.active,
+.light .keyboard-letter .keyboard-row .key-letter.active,
+.light .keyboard-letter .keyboard-row .key-symbol.active,
+.light .keyboard-letter .keyboard-row .key-backspace.active,
+.light .keyboard-letter .keyboard-row .key-capslock.active {
+  background-color: #fff;
+}
+.light .keyboard-letter .keyboard-row .key-spacebar.active {
+  background-color: #e7e7e7;
+}
+.light .keyboard-letter .keyboard-row .key-capslock.lock,
+.light .keyboard-letter .keyboard-row .key-capslock.uplock {
+  background-color: #fff;
+}
+.dark {
+  background-color: #000;
+}
+.dark .keyboard-header {
+  background-color: #333;
+  color: #aaa;
+}
+.dark .keyboard-header:before {
+  background-color: #444;
+}
+.dark .keyboard-header .key-done {
+  color: #f80;
+}
+.dark .keyboard-main {
+  color: #999;
+}
+.dark .keyboard-main:before {
+  background-color: #000;
+}
+.dark .keyboard-number .keyboard-row .key-btn {
+  background-color: #333;
+}
+.dark .keyboard-number .keyboard-row .key-btn:before,
+.dark .keyboard-number .keyboard-row .key-btn:after {
+  background-color: #000;
+}
+.dark .keyboard-number .keyboard-row .key-btn.active {
+  background-color: #292929;
+}
+.dark .keyboard-number .keyboard-row:last-child .key-btn:nth-child(odd) {
+  background-color: #242424;
+}
+.dark .keyboard-number .keyboard-row:last-child .key-btn:nth-child(odd).active {
+  background-color: #151515;
+}
+.dark .keyboard-number-alipay {
+  color: $alipay-color;
+}
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn {
+  background-color: #333;
+}
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:before,
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn:after {
+  background-color: #000;
+}
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-btn.active {
+  background-color: #242424;
+}
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-backspace {
+  background: #333 url("../images/icon-backspace-alipay-dark.png") no-repeat center;
+  background-size: 28px 20px;
+}
+.dark .keyboard-number-alipay .keyboard-col .keyboard-row .key-hide {
+  background: #333 url("../images/icon-hide-alipay-dark.png") no-repeat center;
+  background-size: 26px 18px;
+}
+.dark .keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-confirm {
+  background-color: #f80;
+  color: #fff;
+}
+.dark .keyboard-number-alipay .keyboard-col:last-child .keyboard-row .key-confirm.active {
+  background-color: #f07900;
+}
+.dark .keyboard-number-wechat {
+  color: #999;
+}
+.dark .keyboard-number-wechat .keyboard-col .keyboard-row .key-btn {
+  background-color: #333;
+}
+.dark .keyboard-number-wechat .keyboard-col .keyboard-row .key-btn.active {
+  background-color: #242424;
+}
+.dark .keyboard-number-wechat .keyboard-col .keyboard-row .key-backspace {
+  background: #333 url("../images/icon-backspace-wechat-dark.png") no-repeat center;
+  background-size: 20px 16px;
+}
+.dark .keyboard-number-wechat .keyboard-col:last-child .keyboard-row .key-confirm {
+  background-color: #f80;
+  color: #fff;
+}
+.dark .keyboard-number-wechat .keyboard-col:last-child .keyboard-row .key-confirm.active {
+  background-color: #f07900;
+}
+.dark .keyboard-letter .keyboard-row .key-btn {
+  background-color: #333;
+  border-color: #444;
+}
+.dark .keyboard-letter .keyboard-row .key-number,
+.dark .keyboard-letter .keyboard-row .key-letter,
+.dark .keyboard-letter .keyboard-row .key-symbol,
+.dark .keyboard-letter .keyboard-row .key-backspace,
+.dark .keyboard-letter .keyboard-row .key-capslock {
+  background-color: #fff;
+}
+.dark .keyboard-letter .keyboard-row .key-confirm {
+  background-color: #f80;
+  color: #fff;
+}
+.dark .keyboard-letter .keyboard-row .key-confirm.active {
+  background-color: #e16a00;
+}
+.dark .keyboard-letter .keyboard-row .key-number.active,
+.dark .keyboard-letter .keyboard-row .key-letter.active,
+.dark .keyboard-letter .keyboard-row .key-symbol.active,
+.dark .keyboard-letter .keyboard-row .key-backspace.active,
+.dark .keyboard-letter .keyboard-row .key-capslock.active {
+  background-color: #333;
+}
+.dark .keyboard-letter .keyboard-row .key-spacebar.active {
+  background-color: #fff;
+}
+.keyboard-inputwrap {
+  position: relative;
+}
+.keyboard-inputwrap .keyboard-cursor {
+  font-style: normal;
+  position: relative;
+  top: -1px;
+  color: #1e1e1e;
+  display: none;
+}
+.keyboard-inputwrap .keyboard-placeholder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #666;
+  opacity: 0.4;
+}
+.keyboard-inputwrap.focus .keyboard-cursor {
+  display: inline;
+  animation: cursorAni 1s steps(1, start) infinite;
+  -webkit-animation: cursorAni 1s steps(1, start) infinite;
+}
+@-webkit-keyframes cursorAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes cursorAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes cursorAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@-o-keyframes cursorAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes cursorAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

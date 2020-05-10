@@ -1,0 +1,651 @@
+@charset "UTF-8"
+// 数字按键高度
+$key-nm-height = 50px
+// 英文按键高度
+$key-en-height = 40px
+// 按键字体大小
+$font-size-20 = 20px
+$font-size-18 = 18px
+$font-size-15 = 15px
+
+/** 
+* 亮色
+*/
+// 键盘背景
+$light-keyboard-bg = #efefef
+// 按键背景颜色
+$light-presskey-bg1 = #fff
+$light-presskey-bg2 = #e7e7e7
+// 按键文字颜色
+$light-color = #666
+// 键盘标题颜色
+$light-title-color = #999
+// 按键边框颜色
+$light-border-color = #ccd0d2
+// 确定按钮
+$light-confirm-bg = #ff926f
+$light-confirm-color = #fff
+
+
+/** 
+* 暗色
+*/
+// 键盘背景
+$dark-keyboard-bg = #000
+// 按键背景颜色
+$dark-presskey-bg1 = #333
+$dark-presskey-bg2 = #fff
+// 按键文字颜色
+$dark-color = #999
+// 键盘标题颜色
+$dark-title-color = #aaa
+// 按键边框颜色
+$dark-border-color = #444
+// 确定按钮
+$dark-confirm-bg = #F80
+$dark-confirm-color = #fff
+
+
+/**
+* 支付宝数字键盘亮色系
+*/
+// 键盘背景
+$light-alipay-keyboard-bg = #d7d7d7
+// 按键背景颜色
+$light-alipay-presskey-bg = #f6f6f6
+// 按键文字颜色
+$light-alipay-color = #111
+// 按键边框颜色
+$light-alipay-border-color = #d7d7d7
+// 确定按钮
+$light-alipay-confirm-bg =  #4b8fda
+$light-alipay-confirm-color = #fff
+
+
+/**
+* 支付宝数字键盘暗色系
+*/
+// 键盘背景
+$dark-alipay-keyboard-bg = #000
+// 按键背景颜色
+$dark-alipay-presskey-bg = #333
+// 按键文字颜色
+$dark-alipay-color = #999
+// 按键边框颜色
+$dark-alipay-border-color = #000
+// 确定按钮
+$dark-alipay-confirm-bg = #F80
+$dark-alipay-confirm-color = #fff
+
+
+
+
+/**
+* 微信数字键盘亮色系
+*/
+// 键盘背景
+$light-wechat-keyboard-bg = #f3f3f5
+// 按键背景颜色
+$light-wechat-presskey-bg = #fff
+// 按键文字颜色
+$light-wechat-color = #191919
+// 按键边框颜色
+$light-wechat-border-color = #d7d7d7
+// 确定按钮
+$light-wechat-confirm-bg = #57bf6a
+$light-wechat-confirm-color = #fff
+
+
+/**
+* 微信数字键盘暗色系
+*/
+// 键盘背景
+$dark-wechat-keyboard-bg = #000
+// 按键背景颜色
+$dark-wechat-presskey-bg = #333
+// 按键文字颜色
+$dark-wechat-color = #999
+// 按键边框颜色
+$dark-wechat-border-color = #000
+// 确定按钮
+$dark-wechat-confirm-bg = #F80
+$dark-wechat-confirm-color = #fff
+
+
+_cssPrefix(prop, args)
+	{prop} args
+	-webkit-{prop} args
+    // -ms-{prop} args
+	// -moz-{prop} args
+    // -o-{prop} args
+ 
+_borderLine(ident)
+	if ident == before
+		content ''
+		width 100%
+		height 1px
+		position absolute
+		top 0
+		left 0
+		z-index 10
+		_cssPrefix('transform', scaleY(.5))
+		_cssPrefix('transform-origin', center)
+	else if ident == after
+		content ''
+		width: 1px
+		height 100%
+		position absolute
+		top 0
+		right -1px
+		z-index 10
+		_cssPrefix('transform', scaleX(.5))
+		_cssPrefix('transform-origin', center)
+
+
+html,body,div,span,input,p,i
+	margin 0
+	padding 0
+
+
+// 退格
+.key-backspace
+	background-image url("../images/icon-backspace.png")
+	background-repeat no-repeat
+	background-position center
+	background-size 21px 18px
+
+// 大写
+.key-capslock
+	background-image url("../images/icon-capslock.svg")
+	background-repeat no-repeat
+	background-position center
+	background-size 19px 18px
+	&.lock
+		background-image url("../images/icon-capslock-lock.svg")
+	&.uplock
+		background-image url("../images/icon-capslock-uplock.svg")
+
+
+// 页面结构公共样式
+.keyboard-wrapper
+	font 21px "PingFangSC-Medium,sans-serif","Noto Sans CJK SC,sans-serif",Arial,"Microsoft YaHei"
+	-webkit-tap-highlight-color transparent
+	-webkit-appearance none
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-webkit-font-smoothing antialiased
+	appearance none
+	outline none
+	-webkit-tap-highlight-color transparent
+	position fixed
+	right 0
+	bottom 0
+	left 0
+	width 375px	
+.keyboard-transition
+	_cssPrefix('transform-origin', 0 100% 0)
+	
+// 键盘头部
+.keyboard-header
+	height 40px
+	line-height 40px
+	font-size $font-size-15
+	position relative
+	text-align center
+	&:before
+		_borderLine(before)
+	.key-done
+		width 40px
+		height 100%
+		padding 0 5px
+		position absolute
+		top 0
+		right 0
+		
+	.keyboard-icon
+		width 16px
+		height 16px
+		position relative
+		top 2px
+		right 5px
+	    
+		
+.keyboard-main
+	position relative
+	&:before
+		_borderLine(before)
+
+// 数字
+.keyboard-number
+	display -webkit-flex
+	display flex
+	flex-direction column
+	.keyboard-row
+		display inline-flex
+		.key-btn
+			flex 1
+			height $key-nm-height
+			line-height $key-nm-height
+			font-size $font-size-20
+			text-align center
+			position relative
+			&:before
+				_borderLine(before)
+			&:after
+				_borderLine(after)
+			&:last-child:after
+				display none
+		&:first-child
+			.key-btn:before
+				display none
+
+
+// 支付宝数字键盘	
+.keyboard-number-alipay
+	display -webkit-box
+	flex-direction column
+	.keyboard-col
+		.keyboard-row
+			display -webkit-flex
+			display flex
+			.key-btn
+				flex 1
+				height $key-nm-height
+				line-height $key-nm-height
+				font-size $font-size-20
+				text-align center
+				position relative
+				&:before
+					_borderLine(before)
+				&:after
+					_borderLine(after)
+			&:first-child
+				.key-btn:before
+					display none
+		&:first-child
+			width 75%
+		&:last-child
+			width 25%
+			.keyboard-row
+				.key-btn
+					height $key-nm-height * 2
+					line-height $key-nm-height * 2
+					font-size $font-size-18
+					&:after
+						display none		
+
+
+// 微信数字键盘	
+.keyboard-number-wechat
+	display -webkit-box
+	flex-direction column
+	padding 0 0 7px 7px
+	.keyboard-col
+		.keyboard-row
+			display -webkit-flex
+			display flex
+			padding-top 7px
+			.key-btn
+				flex 1
+				height $key-nm-height - 8.75
+				line-height $key-nm-height - 8.75
+				font-size $font-size-20
+				text-align center
+				position relative
+				border-radius 5px
+				box-sizing border-box
+				margin-right 7px
+				&:before
+					_borderLine(before)
+				&:after
+					_borderLine(after)
+			&:first-child
+				.key-btn:before
+					display none
+		&:first-child
+			width 75%
+		&:last-child
+			width 25%
+			.keyboard-row
+				&:first-child
+					.key-btn
+						height $key-nm-height - 8.75
+						line-height $key-nm-height - 8.75
+				&:last-child
+					.key-btn
+						font-size $font-size-18
+						height $key-nm-height * 2.755
+						line-height $key-nm-height * 2.755
+
+
+// 字母、符号				
+.keyboard-letter
+	padding 5px 3px
+	.keyboard-row
+		display -webkit-flex
+		display flex
+		justify-content center
+		.key-btn
+			width 8.35%
+			height $key-en-height
+			line-height $key-en-height
+			font-size $font-size-20
+			margin: 3.76px 3.47px
+			text-align center
+			border-radius 5px
+			border-width 1px
+			border-style solid
+			-webkit-box-sizing border-box
+			box-sizing border-box
+		.key-backspace
+		.key-capslock
+		.key-number
+		.key-letter
+		.key-symbol
+			width 13%
+		.key-confirm
+			width 20%
+		.key-spacebar
+			width 36.5%
+		.key-number
+		.key-letter
+		.key-symbol
+		.key-spacebar
+		.key-confirm
+			font-size $font-size-15
+		.key-active
+		.key-active-left
+		.key-active-right
+			position relative
+			&:before
+				content: attr(key)
+				position absolute
+				display block
+				width 67px
+				height 119px
+				line-height 2.3em
+				font-size 30px
+				background-repeat no-repeat
+				background-size 100%
+				left 0
+				bottom 0
+				z-index 20
+		.key-active:before
+				background-image url("../images/icon-key.png")
+				-webkit-transform translate3d(-19.6px, 3.5px, 0);
+				transform translate3d(-19.6px, 3.5px, 0);
+		.key-active-left:before
+				background-image url("../images/icon-keyleft.png")
+				-webkit-transform translate3d(-7px, 3.5px, 0);
+				transform translate3d(-7px, 3.5px, 0);
+		.key-active-right:before
+				background-image url("../images/icon-keyright.png")
+				-webkit-transform translate3d(-31.6px, 3.5px, 0);
+				transform translate3d(-31.6px, 3.5px, 0);
+
+	// 字符键盘退格(删除)键宽度		
+	&[type="symbol"]
+		.key-backspace
+			width 18.5%
+// 亮色
+.light
+	background-color $light-keyboard-bg
+	// 键盘头部
+	.keyboard-header
+		background-color $light-presskey-bg1
+		color $light-title-color
+		&:before
+			background-color $light-border-color
+		.key-done
+			color $light-confirm-bg
+	.keyboard-main
+		color $light-color
+		&:before
+			background-color $light-border-color
+	// 普通数字键盘色系
+	.keyboard-number
+		.keyboard-row
+			.key-btn
+				background-color $light-presskey-bg1
+				&:before
+				&:after
+					background-color $light-keyboard-bg
+				&.active
+					background-color $light-presskey-bg1 - 10
+			&:last-child
+				.key-btn:nth-child(odd)
+					background-color $light-presskey-bg2
+					&.active
+						background-color $light-presskey-bg2 - 10
+	
+	// 支付宝数字键盘色系
+	.keyboard-number-alipay
+		color $light-alipay-color
+		.keyboard-col
+			.keyboard-row
+				.key-btn
+					background-color $light-alipay-presskey-bg
+					&:before
+					&:after
+						background-color $light-alipay-border-color
+					&.active
+						background-color $light-alipay-presskey-bg - 17
+				.key-backspace
+					background $light-alipay-presskey-bg url("../images/icon-backspace-alipay-light.png") no-repeat center
+					background-size 28px 20px
+				.key-hide
+					background $light-alipay-presskey-bg url("../images/icon-hide-alipay-light.png") no-repeat center
+					background-size 26px 18px
+			&:last-child
+				.keyboard-row
+					.key-confirm
+						background-color $light-alipay-confirm-bg 
+						color $light-alipay-confirm-color
+						&.active
+							background-color $light-alipay-confirm-bg - 13
+	
+	// 微信数字键盘	
+	.keyboard-number-wechat
+		color $light-wechat-color
+		background-color $light-wechat-keyboard-bg
+		.keyboard-col
+			.keyboard-row
+				.key-btn
+					background-color $light-wechat-presskey-bg
+					&.active
+						background-color $light-wechat-presskey-bg - 26
+				.key-backspace
+					background $light-wechat-presskey-bg url("../images/icon-backspace-wechat-light.png") no-repeat center
+					background-size 20px 16px
+
+			&:last-child
+				.keyboard-row
+					.key-confirm
+						background-color $light-wechat-confirm-bg
+						color $light-wechat-confirm-color
+						&.active
+							background-color $light-wechat-confirm-bg - 8
+	
+
+	// 字母、符号				
+	.keyboard-letter
+		.keyboard-row
+			.key-btn
+				background-color $light-presskey-bg1
+				border-color $light-border-color
+				.key-tap
+					display none
+			.key-number
+			.key-letter
+			.key-symbol
+			.key-backspace
+			.key-capslock
+				background-color $light-presskey-bg2
+			.key-confirm
+				background-color $light-confirm-bg
+				color $light-confirm-color
+				&.active
+					background-color $light-confirm-bg - 20
+			.key-number
+			.key-letter
+			.key-symbol
+			.key-backspace
+			.key-capslock
+				&.active
+					background-color $light-presskey-bg1
+			.key-spacebar
+				&.active
+					background-color $light-presskey-bg2
+			.key-capslock
+				&.lock
+				&.uplock
+					background-color: $light-presskey-bg1
+
+
+// 暗色
+.dark
+	background-color $dark-keyboard-bg
+	// 键盘头部
+	.keyboard-header
+		background-color $dark-presskey-bg1
+		color $dark-title-color
+		&:before
+			background-color $dark-border-color
+		.key-done
+			color $dark-confirm-bg
+			
+	.keyboard-main
+		color $dark-color
+		&:before
+			background-color $dark-keyboard-bg
+	
+	// 普通数字键盘色系
+	.keyboard-number
+		.keyboard-row
+			.key-btn
+				background-color $dark-presskey-bg1
+				&:before
+				&:after
+					background-color $dark-keyboard-bg
+				&.active
+					background-color $dark-presskey-bg1 - 10
+			&:last-child
+				.key-btn:nth-child(odd)
+					background-color $dark-presskey-bg1 - 15
+					&.active
+						background-color $dark-presskey-bg1 - 30
+	
+	// 支付宝数字键盘色系
+	.keyboard-number-alipay
+		color $alipay-color
+		.keyboard-col
+			.keyboard-row
+				.key-btn
+					background-color $dark-alipay-presskey-bg
+					&:before
+					&:after
+						background-color $dark-alipay-border-color
+					&.active
+						background-color $dark-alipay-presskey-bg - 15
+				.key-backspace
+					background $dark-alipay-presskey-bg url("../images/icon-backspace-alipay-dark.png") no-repeat center
+					background-size 28px 20px
+				.key-hide
+					background $dark-alipay-presskey-bg url("../images/icon-hide-alipay-dark.png") no-repeat center
+					background-size 26px 18px
+			&:last-child
+				.keyboard-row
+					.key-confirm
+						background-color $dark-alipay-confirm-bg 
+						color $dark-alipay-confirm-color
+						&.active
+							background-color $dark-alipay-confirm-bg - 15
+							
+	// 微信数字键盘	
+	.keyboard-number-wechat
+		color $dark-wechat-color
+		.keyboard-col
+			.keyboard-row
+				.key-btn
+					background-color $dark-wechat-presskey-bg
+					&.active
+						background-color $dark-wechat-presskey-bg - 15
+				.key-backspace
+					background $dark-wechat-presskey-bg url("../images/icon-backspace-wechat-dark.png") no-repeat center
+					background-size 20px 16px
+
+			&:last-child
+				.keyboard-row
+					.key-confirm
+						background-color $dark-wechat-confirm-bg
+						color $dark-wechat-confirm-color
+						&.active
+							background-color $dark-wechat-confirm-bg - 15
+							
+
+	// 字母、符号	
+	.keyboard-letter
+		.keyboard-row
+			.key-btn
+				background-color $dark-presskey-bg1
+				border-color $dark-border-color
+			.key-number
+			.key-letter
+			.key-symbol
+			.key-backspace
+			.key-capslock
+				background-color $dark-presskey-bg2
+			.key-confirm
+				background-color $dark-confirm-bg
+				color $dark-confirm-color
+				&.active
+					background-color $dark-confirm-bg - 30
+			.key-number
+			.key-letter
+			.key-symbol
+			.key-backspace
+			.key-capslock
+				&.active
+					background-color $dark-presskey-bg1
+			.key-spacebar
+				&.active
+					background-color $dark-presskey-bg2
+			
+// 输入框
+.keyboard-inputwrap
+	position relative
+	.keyboard-cursor
+		font-style normal
+		position relative
+		top -1px
+		color rgb(30, 30, 30)
+		display none
+	.keyboard-placeholder
+		position absolute
+		left 0
+		top 0
+		color #666
+		opacity .4
+	&.focus
+		.keyboard-cursor
+			display inline
+			animation cursorAni 1s steps(1, start) infinite
+			-webkit-animation cursorAni 1s steps(1, start) infinite
+		
+		
+@keyframes cursorAni{
+	0%, 100% {
+		opacity 0
+	} 
+	50% { 
+		opacity 1
+	}
+} 
+@-webkit-keyframes cursorAni{
+	0%, 100% {
+		opacity 0
+	} 
+	50% { 
+		opacity 1
+	}
+}

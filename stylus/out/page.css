@@ -1,0 +1,71 @@
+@charset "UTF-8";
+html,
+body,
+div,
+ul,
+li,
+label,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+}
+ul li {
+  list-style: none;
+}
+input {
+  outline: none;
+}
+.login {
+  padding: 30px 22px;
+}
+.login li {
+  height: 48px;
+  line-height: 48px;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+.login li .login-label,
+.login li .login-input {
+  height: 100%;
+}
+.login li .login-label {
+  width: 20%;
+}
+.login li .login-input {
+  width: 80%;
+  border: none;
+}
+.list-tab {
+  padding: 0 10px;
+}
+.list-tab li {
+  text-align: center;
+}
+.list-tab li h3 {
+  padding: 10px 0;
+}
+.list-tab li div {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.list-tab li div span {
+  background-color: #409eff;
+  border: 1px solid #b3d8ff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+  flex: 1;
+  margin: 2px 0;
+  color: #fff;
+}
+.list-tab li div span.active {
+  background-color: #66b1ff;
+}
